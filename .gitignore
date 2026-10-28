@@ -32,3 +32,6 @@ dist-ssr
 *.sw?
 
 .vercel
+
+# Local QA screenshots
+shots/

@@ -5,19 +5,21 @@ import oryzenLogo from "@/assets/projects/oryzen_logo.png?logo";
 
 const calendlyBaseUrl =
   import.meta.env.VITE_CALENDLY_URL ??
-  "https://calendly.com/hashmisahil19/30min";
+  "https://calendly.com/oryzentechnolabs/15-minute-mvp-discovery-call";
 const freeMvpCallLink = `${calendlyBaseUrl}${
   calendlyBaseUrl.includes("?") ? "&" : "?"
 }hide_gdpr_banner=1`;
 
 const links = [
   { href: "#about", label: "About" },
-  { href: "#tech-stack", label: "Stack" },
   { href: "#portfolio", label: "Work" },
+  { href: "#tech-stack", label: "Stack" },
   { href: "#services", label: "Services" },
   { href: "#pricing", label: "Pricing" },
   { href: "#contact", label: "Contact" },
 ];
+
+const sectionIds = ["top", ...links.map((link) => link.href.slice(1))];
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -35,27 +37,47 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // Scroll-spy: pick the last section whose top has crossed the probe line.
+  // A deterministic per-frame check avoids the flicker/gap behavior of
+  // IntersectionObserver, where no section is "intersecting" between sections.
   useEffect(() => {
-    const sectionIds = ["top", ...links.map((link) => link.href.slice(1))];
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+    let frame = 0;
 
-        if (visible) {
-          setActiveSection(`#${visible.target.id}`);
+    const computeActiveSection = () => {
+      frame = 0;
+      const probeLine = window.innerHeight * 0.35;
+      let current = `#${sectionIds[0]}`;
+
+      for (const id of sectionIds) {
+        const section = document.getElementById(id);
+        if (!section) continue;
+        if (section.getBoundingClientRect().top <= probeLine) {
+          current = `#${id}`;
         }
-      },
-      { rootMargin: "-24% 0px -58%", threshold: [0.12, 0.24, 0.4] },
-    );
+      }
 
-    sectionIds.forEach((id) => {
-      const section = document.getElementById(id);
-      if (section) observer.observe(section);
-    });
+      const atPageBottom =
+        window.innerHeight + window.scrollY >=
+        document.documentElement.scrollHeight - 2;
+      if (atPageBottom) current = `#${sectionIds[sectionIds.length - 1]}`;
 
-    return () => observer.disconnect();
+      setActiveSection((previous) =>
+        previous === current ? previous : current,
+      );
+    };
+
+    const onScroll = () => {
+      if (!frame) frame = requestAnimationFrame(computeActiveSection);
+    };
+
+    computeActiveSection();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+      if (frame) cancelAnimationFrame(frame);
+    };
   }, []);
 
   useEffect(() => {
@@ -124,22 +146,22 @@ export function Navbar() {
               : "border border-black/10 bg-white/50 backdrop-blur-xl"
         }`}
       >
-        <a
-          href="#top"
-          onClick={() => setOpen(false)}
-          className="group relative flex h-11 w-40 items-center justify-center overflow-hidden rounded-2xl border border-black/10 bg-white/90 shadow-[0_18px_45px_-36px_rgba(17,17,17,.55)] transition hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 sm:h-12 sm:w-56"
-        >
-          <img
-            src={oryzenLogo.img.src}
-            srcSet={oryzenLogo.sources.webp}
-            sizes="(min-width: 640px) 224px, 160px"
-            alt="Oryzen Technolabs logo"
-            decoding="async"
-            fetchPriority="high"
-            className="h-full w-full object-contain object-center px-2.5 py-1 transition-transform duration-500 group-hover:scale-[1.035] sm:px-3 sm:py-1.5"
-          />
-          <span className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-black/10" />
-        </a>
+          <a
+            href="#top"
+            onClick={() => setOpen(false)}
+            className="group relative flex h-12 w-44 items-center justify-center overflow-hidden rounded-2xl border border-black/10 bg-white/90 shadow-[0_18px_45px_-36px_rgba(17,17,17,.55)] transition hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 sm:h-14 sm:w-64"
+          >
+            <img
+              src={oryzenLogo.img.src}
+              srcSet={oryzenLogo.sources.webp}
+              sizes="(min-width: 640px) 256px, 176px"
+              alt="Oryzen Technolabs logo"
+              decoding="async"
+              fetchPriority="high"
+              className="h-full w-full object-contain object-center px-2 py-0.5 transition-transform duration-500 group-hover:scale-[1.035] sm:px-3 sm:py-1"
+            />
+            <span className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-black/10" />
+          </a>
 
         <ul className="hidden items-center gap-1 md:flex">
           {links.map((l) => (
@@ -164,6 +186,7 @@ export function Navbar() {
             href={freeMvpCallLink}
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="Book a 15-minute MVP discovery call on Calendly"
             className="hidden h-10 items-center justify-center rounded-full bg-[linear-gradient(180deg,#3b3b3b,#0f0f0f)] px-5 text-sm font-semibold text-white shadow-[inset_0_1px_0_rgba(255,255,255,.28),0_12px_28px_-18px_rgba(17,17,17,.9)] ring-1 ring-black/10 transition hover:-translate-y-0.5 hover:shadow-[inset_0_1px_0_rgba(255,255,255,.32),0_16px_34px_-18px_rgba(17,17,17,.95)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 md:inline-flex"
           >
             Book a Call
@@ -245,6 +268,7 @@ export function Navbar() {
                 href={freeMvpCallLink}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Book a 15-minute MVP discovery call on Calendly"
                 onClick={() => setOpen(false)}
                 className="inline-flex h-13 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-sm font-semibold text-background transition hover:bg-foreground/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50"
               >

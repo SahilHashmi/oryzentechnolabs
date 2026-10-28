@@ -11,7 +11,7 @@ import appCss from "../styles.css?url";
 import favicon from "../assets/projects/favicon.png";
 
 const SITE_URL = import.meta.env.VITE_SITE_URL ?? "https://sahilhashmi.dev";
-const OG_IMAGE = `${SITE_URL}/icons/icon-512x512.png`;
+const OG_IMAGE = `${SITE_URL}/og-image.png`;
 
 function NotFoundComponent() {
   return (
@@ -82,7 +82,7 @@ export const Route = createRootRoute({
       {
         name: "description",
         content:
-          "Oryzen Technolabs is a digital product studio building premium websites, mobile apps, and AI-powered SaaS platforms. Book a call to start your project.",
+          "Oryzen Technolabs is a digital product studio building e-commerce stores, premium websites, mobile apps, and AI-powered SaaS platforms. Book a free 15-minute MVP discovery call to start your project.",
       },
       { name: "author", content: "Oryzen Technolabs" },
       { name: "theme-color", content: "#111111" },
@@ -104,16 +104,19 @@ export const Route = createRootRoute({
       {
         property: "og:description",
         content:
-          "Premium websites, apps, and AI products — built by Oryzen Technolabs. Web · App · AI — available worldwide.",
+          "Premium e-commerce stores, websites, apps, and AI products — built by Oryzen Technolabs. Web · App · AI — available worldwide.",
       },
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: "Oryzen Technolabs" },
       { property: "og:url", content: SITE_URL },
       { property: "og:image", content: OG_IMAGE },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
       {
         property: "og:image:alt",
-        content: "Oryzen Technolabs brand preview",
+        content: "Oryzen Technolabs — digital product studio portfolio",
       },
+      { property: "og:locale", content: "en_US" },
       { name: "twitter:card", content: "summary_large_image" },
       {
         name: "twitter:title",
@@ -122,7 +125,7 @@ export const Route = createRootRoute({
       {
         name: "twitter:description",
         content:
-          "Premium websites, apps, and AI products — built by Oryzen Technolabs.",
+          "Premium e-commerce stores, websites, apps, and AI products — built by Oryzen Technolabs.",
       },
       { name: "twitter:image", content: OG_IMAGE },
       {
@@ -138,7 +141,7 @@ export const Route = createRootRoute({
       },
       {
         rel: "icon",
-        href: favicon,
+        href: "/icons/icon-transparent-512.png",
         type: "image/png",
       },
       {

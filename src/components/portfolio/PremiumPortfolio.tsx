@@ -22,6 +22,7 @@ import {
   CloudUpload,
   Code2,
   Headphones,
+  Instagram,
   Linkedin,
   Mail,
   PenTool,
@@ -55,9 +56,12 @@ import plumberApp from "@/assets/projects/plumber.png?card";
 import iplanIos from "@/assets/projects/iplan_ios.png?card";
 import indilingoApp from "@/assets/projects/eng_app.png?card";
 import mufoApp from "@/assets/projects/mufo.png?card";
-import beverlyHillsPlaza from "@/assets/projects/Bh.png?card";
-import moorHall from "@/assets/projects/MH.png?card";
-import maisonelle from "@/assets/projects/MEll.png?card";
+import nirahaStore from "@/assets/projects/niraha-trending-products.png?card";
+import ekswaadStore from "@/assets/projects/ekswaad-forest-honey-banner.png?card";
+import orasureStore from "@/assets/projects/orasure-organics-hero.png?card";
+import magnoliaBakery from "@/assets/projects/magnolia-bakery-hero.png?card";
+import polloTropical from "@/assets/projects/pollo-tropical-hero.png?card";
+import getSkin from "@/assets/projects/getskin-hero.png?card";
 
 const cardSizes = "(min-width: 1200px) 450px, (min-width: 768px) 30vw, 95vw";
 const gallerySizes = "(min-width: 1100px) 984px, 95vw";
@@ -75,10 +79,11 @@ const stagger = {
 const contactEmail = "oryzentechnolabs@gmail.com";
 const calendlyBaseUrl =
   import.meta.env.VITE_CALENDLY_URL ??
-  "https://calendly.com/hashmisahil19/30min";
+  "https://calendly.com/oryzentechnolabs/15-minute-mvp-discovery-call";
 const freeMvpCallLink = `${calendlyBaseUrl}${
   calendlyBaseUrl.includes("?") ? "&" : "?"
 }hide_gdpr_banner=1`;
+const instagramProfileUrl = "https://www.instagram.com/oryzentechnolabs/";
 
 const heroStats = [
   { value: "40+", label: "Projects delivered" },
@@ -278,30 +283,57 @@ const figmaDesigns = [
   },
 ];
 
+const onlineStores = [
+  {
+    title: "Niraha — House of Fragrance",
+    description:
+      "An elegant online fragrance store with a rich product catalogue, trending collections, and a smooth, conversion-focused shopping flow.",
+    href: "https://niraha.co",
+    image: nirahaStore,
+    stack: ["E-commerce", "Product Catalogue", "Storefront"],
+  },
+  {
+    title: "Ek Swaad — Natural Foods",
+    description:
+      "A farm-to-home natural foods store showcasing pure honey and artisanal products with trust-driven storytelling and online ordering.",
+    href: "https://ekswaad.in",
+    image: ekswaadStore,
+    stack: ["E-commerce", "D2C Brand", "Online Ordering"],
+  },
+  {
+    title: "Orasure Organics",
+    description:
+      "An organic wellness store with a clean product discovery experience, brand storytelling, and a frictionless checkout journey.",
+    href: "https://orasureorganics.com",
+    image: orasureStore,
+    stack: ["E-commerce", "Organic Products", "Storefront"],
+  },
+];
+
 const websiteProjects = [
   {
-    title: "Beverly Hills Plaza Hotel & Spa",
+    title: "Magnolia Bakery",
     description:
-      "Luxury hospitality website with elegant booking flows, polished room presentation, and premium brand storytelling.",
-    href: "https://www.beverlyhillsplazahotel.com/",
-    image: beverlyHillsPlaza,
-    stack: ["Hotel Website", "Booking UX", "Responsive UI"],
+      "The official website of the legendary New York bakery, blending beloved brand storytelling with polished product presentation and online ordering.",
+    href: "https://www.magnoliabakery.com",
+    image: magnoliaBakery,
+    stack: ["Brand Website", "Bakery", "Online Ordering"],
   },
   {
-    title: "Moor Hall",
+    title: "Pollo Tropical",
     description:
-      "Restaurant and hospitality website focused on immersive imagery, refined navigation, and reservation discovery.",
-    href: "https://moorhall.com/",
-    image: moorHall,
-    stack: ["Restaurant", "Hospitality", "Editorial UI"],
+      "A vibrant Caribbean-inspired restaurant website with bold visual identity, menu discovery, and location-based ordering flows.",
+    href: "https://www.pollotropical.com",
+    image: polloTropical,
+    stack: ["Restaurant Website", "Brand Identity", "Menu UX"],
   },
   {
-    title: "Maisonelle",
+    title: "GetSkin Medical Spa",
     description:
-      "Premium brand website with strong visual hierarchy, minimal navigation, and an elegant reservation-first experience.",
-    href: "https://maisonelle.fr/",
-    image: maisonelle,
-    stack: ["Luxury Brand", "Responsive UI", "Booking Flow"],
+      "A refined medical spa and wellness website with an elegant treatment catalogue, booking prompts, and a calming premium aesthetic.",
+    href: "https://getskin.us",
+    image: getSkin,
+    stack: ["Medical Spa", "Wellness", "Appointment UX"],
   },
 ];
 
@@ -863,18 +895,9 @@ export function PremiumPortfolio() {
               </span>
               Accepting new projects
             </motion.div>
-            <motion.p
-              variants={reveal}
-              className="mb-4 max-w-xl font-mono text-xs uppercase tracking-[0.5em] text-primary sm:mb-5"
-            >
-              <AnimatedEyebrow text="Oryzen Technolabs ·" />
-              <span className="block whitespace-nowrap sm:ml-[0.5em] sm:inline-block">
-                <AnimatedEyebrow text="Digital Product Studio" />
-              </span>
-            </motion.p>
             <motion.h1
               variants={reveal}
-              className="max-w-[640px] font-display text-[clamp(2.85rem,12vw,4rem)] font-semibold leading-[0.95] text-foreground sm:text-[clamp(4rem,7.5vw,5rem)] lg:text-[clamp(4.2rem,4.7vw,5.2rem)]"
+              className="mt-8 max-w-[640px] font-display text-[clamp(2.85rem,12vw,4rem)] font-semibold leading-[0.95] text-foreground sm:mt-9 sm:text-[clamp(4rem,7.5vw,5rem)] lg:text-[clamp(4.2rem,4.7vw,5.2rem)]"
             >
               <span className="block">Agency-grade</span>
               <span className="block">websites</span>
@@ -894,18 +917,18 @@ export function PremiumPortfolio() {
             </motion.p>
             <motion.div
               variants={reveal}
-              className="mt-7 flex flex-wrap items-center gap-3 sm:gap-4 lg:flex-nowrap"
+              className="mt-7 flex flex-wrap items-center gap-3 sm:gap-4"
             >
               <MagneticButton
                 asLink="#portfolio"
-                className="h-14 px-7 text-base sm:px-8"
+                className="h-14 whitespace-nowrap px-7 text-base sm:px-8"
               >
                 View portfolio <ArrowUpRight size={18} />
               </MagneticButton>
               <MagneticButton
                 asLink="#contact"
                 variant="ghost"
-                className="h-14 px-7 text-base sm:px-8"
+                className="h-14 whitespace-nowrap px-7 text-base sm:px-8"
               >
                 Start a project <Send size={17} />
               </MagneticButton>
@@ -913,7 +936,8 @@ export function PremiumPortfolio() {
                 href={freeMvpCallLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex h-14 items-center gap-2 rounded-full border border-black/10 bg-white/50 px-7 text-base font-medium text-foreground/80 transition hover:border-black/25 hover:bg-white hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 sm:px-8"
+                aria-label="Book a 15-minute MVP discovery call on Calendly"
+                className="inline-flex h-14 items-center gap-2 whitespace-nowrap rounded-full border border-black/10 bg-white/50 px-7 text-base font-medium text-foreground/80 transition hover:border-black/25 hover:bg-white hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 sm:px-8"
               >
                 <CalendarPlus size={17} /> Book a Call
               </a>
@@ -999,98 +1023,77 @@ export function PremiumPortfolio() {
         </div>
       </section>
 
-      <section id="tech-stack" className="px-4 py-20 sm:px-6 sm:py-28">
-        <div className="mx-auto max-w-[1440px]">
-          <SectionIntro
-            eyebrow="Tech Stack"
-            title="Official logos, practical coverage, and room to adapt."
-            copy="A practical capability map of the tools, frameworks, and platforms we use to ship reliable products across web, mobile, backend, cloud, and AI workflows."
-          />
-          <div className="space-y-8">
-            {techGroups.map((group) => (
-              <motion.div
-                key={group.title}
-                variants={stagger}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, margin: "-80px" }}
-                className="rounded-[1.75rem] border border-black/10 bg-[#fbfaf6]/75 p-4 shadow-[0_22px_70px_-58px_rgba(17,17,17,.5)] sm:p-6"
-              >
-                <h3 className="mb-4 font-display text-xl font-semibold">
-                  <AnimatedWords text={group.title} />
-                </h3>
-                <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-                  {group.items.map(([name, slug]) => (
-                    <TechLogo key={name} name={name} slug={slug} />
-                  ))}
-                </ul>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       <section id="portfolio" className="px-4 py-20 sm:px-6 sm:py-28">
         <div className="mx-auto max-w-[1440px]">
           <SectionIntro
             eyebrow="Selected Work"
-            title="Figma designs and shipped digital products."
-            copy="A focused collection of dashboard, mobile commerce, healthcare, website, and product work with direct links to the live design files."
+            title="Online stores, websites, and shipped digital products."
+            copy="A focused collection of e-commerce storefronts, brand websites, web applications, mobile apps, and product design work with direct links to the live products."
           />
 
           <div className="mb-16">
             <div className="mb-5 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
               <div>
                 <h3 className="font-display text-2xl font-semibold">
-                  Figma Designs
+                  <AnimatedWords text="Online Stores" />
                 </h3>
                 <p className="mt-1 text-sm text-muted-foreground">
-                  Click any preview image to open the Figma file.
+                  E-commerce storefronts built to convert visitors into
+                  customers.
                 </p>
               </div>
               <span className="w-fit rounded-full border border-black/10 bg-white/70 px-3 py-1 text-xs text-muted-foreground shadow-sm">
-                3 live design files
+                E-commerce projects
               </span>
             </div>
-            <div className="grid gap-5 md:grid-cols-3">
-              {figmaDesigns.map((item) => (
-                <motion.a
-                  key={item.title}
-                  href={item.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
+            <div className="grid gap-5 lg:grid-cols-3">
+              {onlineStores.map((project, index) => (
+                <motion.article
+                  key={project.title}
                   whileHover={{ y: -8 }}
-                  className="group relative flex h-full flex-col overflow-hidden rounded-[1.75rem] border border-black/10 bg-white/80 p-3 shadow-[0_26px_80px_-58px_rgba(17,17,17,.5)] transition hover:border-black/20 hover:bg-white/95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 sm:p-4"
+                  className="group flex h-full flex-col overflow-hidden rounded-[1.75rem] border border-black/10 bg-white/75 p-4 shadow-[0_26px_80px_-58px_rgba(17,17,17,.5)] transition hover:border-black/20 hover:bg-white/95"
                 >
-                  <div className="relative aspect-[16/10] overflow-hidden rounded-[1.35rem] border border-black/10 bg-[#f4f1e8] p-2 shadow-inner">
+                  <div className="relative mb-5 aspect-[16/10] overflow-hidden rounded-[1.25rem] border border-black/10 bg-[#f4f1e8]">
                     <img
-                      src={item.image.img.src}
-                      srcSet={item.image.sources.webp}
+                      src={project.image.img.src}
+                      srcSet={project.image.sources.webp}
                       sizes={cardSizes}
-                      alt={`${item.title} preview`}
+                      alt={`${project.title} online store screenshot`}
                       loading="lazy"
                       decoding="async"
-                      className="h-full w-full rounded-[1rem] object-contain object-center transition duration-700 group-hover:scale-[1.03]"
+                      className="h-full w-full object-cover object-center transition duration-700 group-hover:scale-[1.02]"
                     />
-                    <div className="absolute right-3 top-3 grid h-9 w-9 translate-y-1 place-items-center rounded-full border border-white/50 bg-black/45 text-white opacity-0 shadow-lg backdrop-blur transition duration-500 group-hover:translate-y-0 group-hover:opacity-100">
-                      <ArrowUpRight size={16} />
+                    <div className="absolute left-3 top-3 rounded-full bg-white/85 px-3 py-1 font-mono text-xs text-primary shadow-sm backdrop-blur">
+                      {String(index + 1).padStart(2, "0")}
                     </div>
                   </div>
-                  <div className="flex flex-1 flex-col px-1 pb-1 pt-4">
-                    <span className="mb-3 w-fit rounded-full border border-black/10 bg-[#f4f1e8] px-3 py-1 text-xs font-medium text-foreground">
-                      {item.type}
-                    </span>
-                    <h4 className="font-display text-xl font-semibold leading-tight text-foreground">
-                      {item.title}
-                    </h4>
-                    <p className="mt-2 flex-1 text-sm leading-6 text-muted-foreground">
-                      {item.description}
-                    </p>
-                    <span className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-foreground">
-                      Open in Figma <ArrowUpRight size={15} />
-                    </span>
+                  <h4 className="font-display text-xl font-semibold">
+                    {project.title}
+                  </h4>
+                  <p className="mt-3 flex-1 text-sm leading-6 text-muted-foreground">
+                    {project.description}
+                  </p>
+                  <div className="mt-5 flex flex-wrap gap-2">
+                    {project.stack.map((tag) => (
+                      <span
+                        key={tag}
+                        className="rounded-full bg-[#efeee8] px-3 py-1 text-xs text-foreground/80"
+                      >
+                        {tag}
+                      </span>
+                    ))}
                   </div>
-                </motion.a>
+                  <div className="mt-6 flex gap-3">
+                    <a
+                      href={project.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-sm font-semibold text-primary"
+                    >
+                      Visit Store <ArrowUpRight size={15} />
+                    </a>
+                  </div>
+                </motion.article>
               ))}
             </div>
           </div>
@@ -1106,15 +1109,15 @@ export function PremiumPortfolio() {
                   whileHover={{ y: -8 }}
                   className="group flex h-full flex-col overflow-hidden rounded-[1.75rem] border border-black/10 bg-white/75 p-4 shadow-[0_26px_80px_-58px_rgba(17,17,17,.5)] transition hover:border-black/20 hover:bg-white/95"
                 >
-                  <div className="relative mb-5 aspect-[16/10] overflow-hidden rounded-[1.25rem] border border-black/10 bg-[#f4f1e8] p-2">
+                  <div className="relative mb-5 aspect-[16/10] overflow-hidden rounded-[1.25rem] border border-black/10 bg-[#f4f1e8]">
                     <img
                       src={project.image.img.src}
                       srcSet={project.image.sources.webp}
                       sizes={cardSizes}
-                      alt={`${project.title} website preview`}
+                      alt={`${project.title} website screenshot`}
                       loading="lazy"
                       decoding="async"
-                      className="h-full w-full rounded-[0.85rem] object-contain object-center transition duration-700 group-hover:scale-[1.02]"
+                      className="h-full w-full object-cover object-center transition duration-700 group-hover:scale-[1.02]"
                     />
                     <div className="absolute left-3 top-3 rounded-full bg-white/85 px-3 py-1 font-mono text-xs text-primary shadow-sm backdrop-blur">
                       {String(index + 1).padStart(2, "0")}
@@ -1283,7 +1286,7 @@ export function PremiumPortfolio() {
             </div>
           </div>
 
-          <div>
+          <div className="mb-16">
             <h3 className="mb-5 font-display text-2xl font-semibold">
               <AnimatedWords text="Mobile Applications" />
             </h3>
@@ -1337,6 +1340,94 @@ export function PremiumPortfolio() {
                 </motion.a>
               ))}
             </div>
+          </div>
+
+          <div>
+            <div className="mb-5 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+              <div>
+                <h3 className="font-display text-2xl font-semibold">
+                  <AnimatedWords text="Figma Designs" />
+                </h3>
+                <p className="mt-1 text-sm text-muted-foreground">
+                  Click any preview image to open the Figma file.
+                </p>
+              </div>
+              <span className="w-fit rounded-full border border-black/10 bg-white/70 px-3 py-1 text-xs text-muted-foreground shadow-sm">
+                3 live design files
+              </span>
+            </div>
+            <div className="grid gap-5 md:grid-cols-3">
+              {figmaDesigns.map((item) => (
+                <motion.a
+                  key={item.title}
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ y: -8 }}
+                  className="group relative flex h-full flex-col overflow-hidden rounded-[1.75rem] border border-black/10 bg-white/80 p-3 shadow-[0_26px_80px_-58px_rgba(17,17,17,.5)] transition hover:border-black/20 hover:bg-white/95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 sm:p-4"
+                >
+                  <div className="relative aspect-[16/10] overflow-hidden rounded-[1.35rem] border border-black/10 bg-[#f4f1e8] p-2 shadow-inner">
+                    <img
+                      src={item.image.img.src}
+                      srcSet={item.image.sources.webp}
+                      sizes={cardSizes}
+                      alt={`${item.title} Figma design preview`}
+                      loading="lazy"
+                      decoding="async"
+                      className="h-full w-full rounded-[1rem] object-contain object-center transition duration-700 group-hover:scale-[1.03]"
+                    />
+                    <div className="absolute right-3 top-3 grid h-9 w-9 translate-y-1 place-items-center rounded-full border border-white/50 bg-black/45 text-white opacity-0 shadow-lg backdrop-blur transition duration-500 group-hover:translate-y-0 group-hover:opacity-100">
+                      <ArrowUpRight size={16} />
+                    </div>
+                  </div>
+                  <div className="flex flex-1 flex-col px-1 pb-1 pt-4">
+                    <span className="mb-3 w-fit rounded-full border border-black/10 bg-[#f4f1e8] px-3 py-1 text-xs font-medium text-foreground">
+                      {item.type}
+                    </span>
+                    <h4 className="font-display text-xl font-semibold leading-tight text-foreground">
+                      {item.title}
+                    </h4>
+                    <p className="mt-2 flex-1 text-sm leading-6 text-muted-foreground">
+                      {item.description}
+                    </p>
+                    <span className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-foreground">
+                      Open in Figma <ArrowUpRight size={15} />
+                    </span>
+                  </div>
+                </motion.a>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="tech-stack" className="px-4 py-20 sm:px-6 sm:py-28">
+        <div className="mx-auto max-w-[1440px]">
+          <SectionIntro
+            eyebrow="Tech Stack"
+            title="Official logos, practical coverage, and room to adapt."
+            copy="A practical capability map of the tools, frameworks, and platforms we use to ship reliable products across web, mobile, backend, cloud, and AI workflows."
+          />
+          <div className="space-y-8">
+            {techGroups.map((group) => (
+              <motion.div
+                key={group.title}
+                variants={stagger}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-80px" }}
+                className="rounded-[1.75rem] border border-black/10 bg-[#fbfaf6]/75 p-4 shadow-[0_22px_70px_-58px_rgba(17,17,17,.5)] sm:p-6"
+              >
+                <h3 className="mb-4 font-display text-xl font-semibold">
+                  <AnimatedWords text={group.title} />
+                </h3>
+                <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+                  {group.items.map(([name, slug]) => (
+                    <TechLogo key={name} name={name} slug={slug} />
+                  ))}
+                </ul>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
@@ -1795,6 +1886,11 @@ export function PremiumPortfolio() {
                   text: "LinkedIn",
                   href: "https://www.linkedin.com/company/oryzen-technolabs",
                 },
+                {
+                  icon: Instagram,
+                  text: "Instagram",
+                  href: instagramProfileUrl,
+                },
               ].map(({ icon: Icon, text, href }) => (
                 <a
                   key={text}
@@ -1959,6 +2055,7 @@ export function PremiumPortfolio() {
               href={freeMvpCallLink}
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Book a 15-minute MVP discovery call on Calendly"
               className="inline-flex h-13 items-center justify-center gap-2 rounded-full bg-foreground px-7 text-sm font-semibold text-background shadow-[0_20px_55px_-38px_rgba(17,17,17,.8)] transition hover:scale-[1.02] hover:bg-foreground/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50"
             >
               <CalendarPlus size={17} /> Book a Call
@@ -1973,16 +2070,16 @@ export function PremiumPortfolio() {
             <div>
               <a
                 href="#top"
-                className="group inline-flex h-12 w-56 items-center justify-center overflow-hidden rounded-2xl border border-black/10 bg-white/90 shadow-[0_18px_45px_-36px_rgba(17,17,17,.55)] transition hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50"
+                className="group inline-flex h-14 w-64 items-center justify-center overflow-hidden rounded-2xl border border-black/10 bg-white/90 shadow-[0_18px_45px_-36px_rgba(17,17,17,.55)] transition hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50"
               >
                 <img
                   src={oryzenLogo.img.src}
                   srcSet={oryzenLogo.sources.webp}
-                  sizes="224px"
+                  sizes="256px"
                   alt="Oryzen Technolabs logo"
                   loading="lazy"
                   decoding="async"
-                  className="h-full w-full object-contain object-center px-3 py-1.5 transition-transform duration-500 group-hover:scale-[1.035]"
+                  className="h-full w-full object-contain object-center px-3 py-1 transition-transform duration-500 group-hover:scale-[1.035]"
                 />
               </a>
               <h2 className="mt-5 font-display text-2xl font-semibold text-foreground">
@@ -2017,16 +2114,16 @@ export function PremiumPortfolio() {
               </h3>
               <nav className="mt-4 grid gap-2 text-sm text-muted-foreground">
                 {[
-                  "About",
-                  "Tech Stack",
-                  "Portfolio",
-                  "Services",
-                  "Pricing",
-                  "Contact",
-                ].map((label) => (
+                  { label: "About", href: "#about" },
+                  { label: "Work", href: "#portfolio" },
+                  { label: "Tech Stack", href: "#tech-stack" },
+                  { label: "Services", href: "#services" },
+                  { label: "Pricing", href: "#pricing" },
+                  { label: "Contact", href: "#contact" },
+                ].map(({ label, href }) => (
                   <a
                     key={label}
-                    href={`#${label.toLowerCase().replace(" ", "-")}`}
+                    href={href}
                     className="rounded-lg px-2 py-1 transition hover:bg-black/5 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50"
                   >
                     {label}
@@ -2052,7 +2149,15 @@ export function PremiumPortfolio() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 rounded-lg px-2 py-1 transition hover:bg-black/5 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50"
                 >
-                  <Linkedin size={16} /> LinkedIn profile
+                  <Linkedin size={16} /> LinkedIn
+                </a>
+                <a
+                  href={instagramProfileUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-lg px-2 py-1 transition hover:bg-black/5 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50"
+                >
+                  <Instagram size={16} /> Instagram
                 </a>
               </div>
             </div>

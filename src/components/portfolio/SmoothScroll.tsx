@@ -19,6 +19,33 @@ export function SmoothScroll() {
 
     lenis.scrollTo(0, { immediate: true });
 
+    // Route in-page anchors through Lenis so navbar/footer links glide to the
+    // target section instead of jumping, offset for the fixed navbar height.
+    const onAnchorClick = (event: MouseEvent) => {
+      if (
+        event.defaultPrevented ||
+        event.button !== 0 ||
+        event.metaKey ||
+        event.ctrlKey ||
+        event.shiftKey ||
+        event.altKey
+      ) {
+        return;
+      }
+      const anchor = (event.target as HTMLElement | null)?.closest(
+        'a[href^="#"]',
+      );
+      const hash = anchor?.getAttribute("href");
+      if (!hash || hash === "#") return;
+      const target = document.getElementById(hash.slice(1));
+      if (!target) return;
+
+      event.preventDefault();
+      lenis.scrollTo(target, { offset: -88 });
+      window.history.replaceState(null, "", hash);
+    };
+    document.addEventListener("click", onAnchorClick);
+
     let raf = 0;
     let running = true;
 
@@ -48,6 +75,7 @@ export function SmoothScroll() {
     return () => {
       running = false;
       cancelAnimationFrame(raf);
+      document.removeEventListener("click", onAnchorClick);
       document.removeEventListener("visibilitychange", onVisibilityChange);
       lenis.destroy();
       if ("scrollRestoration" in window.history) {
