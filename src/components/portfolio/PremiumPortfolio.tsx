@@ -876,7 +876,7 @@ export function PremiumPortfolio() {
       <section
         id="top"
         ref={heroRef}
-        className="relative isolate flex min-h-[100svh] items-center overflow-hidden px-4 py-20 sm:px-6 sm:py-24 lg:py-24"
+        className="relative isolate flex min-h-screen items-center overflow-hidden px-4 py-20 sm:px-6 sm:py-24 lg:py-24 [@supports(min-height:100svh)]:min-h-[100svh]"
       >
         <div className="mx-auto grid w-full max-w-[1440px] items-center gap-8 lg:grid-cols-[minmax(0,620px)_minmax(440px,1fr)] lg:gap-12 xl:gap-20">
           <motion.div
@@ -885,16 +885,6 @@ export function PremiumPortfolio() {
             animate="visible"
             className="relative z-10 max-w-[640px]"
           >
-            <motion.div
-              variants={reveal}
-              className="mb-4 inline-flex items-center gap-3 rounded-full border border-black/10 bg-white/70 px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-foreground/80 shadow-[0_16px_50px_-40px_rgba(17,17,17,.5)] backdrop-blur-xl sm:mb-6 lg:hidden"
-            >
-              <span className="relative flex h-2.5 w-2.5">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-foreground opacity-25" />
-                <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-foreground" />
-              </span>
-              Accepting new projects
-            </motion.div>
             <motion.h1
               variants={reveal}
               className="mt-8 max-w-[640px] font-display text-[clamp(2.85rem,12vw,4rem)] font-semibold leading-[0.95] text-foreground sm:mt-9 sm:text-[clamp(4rem,7.5vw,5rem)] lg:text-[clamp(4.2rem,4.7vw,5.2rem)]"
