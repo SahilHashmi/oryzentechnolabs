@@ -876,7 +876,7 @@ export function PremiumPortfolio() {
       <section
         id="top"
         ref={heroRef}
-        className="relative isolate flex min-h-screen items-center overflow-hidden px-4 py-20 sm:px-6 sm:py-24 lg:py-24 [@supports(min-height:100svh)]:min-h-[100svh]"
+        className="relative isolate flex min-h-screen items-center overflow-hidden px-4 py-14 sm:px-6 sm:py-24 lg:py-24 [@supports(min-height:100svh)]:min-h-[100svh]"
       >
         <div className="mx-auto grid w-full max-w-[1440px] items-center gap-8 lg:grid-cols-[minmax(0,620px)_minmax(440px,1fr)] lg:gap-12 xl:gap-20">
           <motion.div
@@ -897,7 +897,7 @@ export function PremiumPortfolio() {
             </motion.h1>
             <motion.p
               variants={reveal}
-              className="mt-6 max-w-[640px] text-pretty text-base leading-7 text-muted-foreground sm:mt-7 sm:text-lg sm:leading-8"
+              className="mt-5 max-w-[640px] text-pretty text-base leading-7 text-muted-foreground sm:mt-7 sm:text-lg sm:leading-8"
             >
               <AnimatedLine delay={0.25}>
                 We design and develop premium web experiences, scalable
@@ -907,7 +907,7 @@ export function PremiumPortfolio() {
             </motion.p>
             <motion.div
               variants={reveal}
-              className="mt-7 flex flex-wrap items-center gap-3 sm:gap-4"
+              className="mt-6 flex flex-wrap items-center gap-3 sm:mt-7 sm:gap-4"
             >
               <MagneticButton
                 asLink="#portfolio"
@@ -934,7 +934,7 @@ export function PremiumPortfolio() {
             </motion.div>
             <motion.div
               variants={reveal}
-              className="mt-10 grid max-w-[560px] grid-cols-3 gap-4 border-t border-black/10 pt-6"
+              className="mt-8 grid max-w-[560px] grid-cols-3 gap-4 border-t border-black/10 pt-6 sm:mt-10"
             >
               {heroStats.map((stat) => (
                 <div key={stat.label}>
@@ -949,7 +949,7 @@ export function PremiumPortfolio() {
             </motion.div>
           </motion.div>
 
-          <div className="relative h-[340px] w-full pb-8 sm:h-[440px] lg:h-[560px] xl:h-[620px]">
+          <div className="relative hidden w-full pb-8 lg:block lg:h-[560px] xl:h-[620px]">
             <div
               aria-hidden
               className="absolute inset-0 bg-[radial-gradient(circle_at_50%_45%,rgba(255,255,255,0.95),transparent_58%)]"
