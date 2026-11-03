@@ -5,7 +5,7 @@ import { Navbar } from "@/components/portfolio/Navbar";
 import { PremiumPortfolio } from "@/components/portfolio/PremiumPortfolio";
 
 const SITE_URL = import.meta.env.VITE_SITE_URL ?? "https://sahilhashmi.dev";
-const OG_IMAGE = `${SITE_URL}/og-image.png`;
+const OG_IMAGE = `${SITE_URL}/og-image-v2.png`;
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -33,11 +33,11 @@ export const Route = createFileRoute("/")({
       { property: "og:type", content: "website" },
       { property: "og:url", content: SITE_URL },
       { property: "og:image", content: OG_IMAGE },
-      { property: "og:image:width", content: "1200" },
-      { property: "og:image:height", content: "630" },
+      { property: "og:image:width", content: "1080" },
+      { property: "og:image:height", content: "1080" },
       {
         property: "og:image:alt",
-        content: "Oryzen Technolabs — digital product studio portfolio",
+        content: "Oryzen Technolabs logo",
       },
       { name: "twitter:card", content: "summary_large_image" },
       {

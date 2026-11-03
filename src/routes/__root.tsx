@@ -11,7 +11,7 @@ import appCss from "../styles.css?url";
 import favicon from "../assets/projects/favicon.png";
 
 const SITE_URL = import.meta.env.VITE_SITE_URL ?? "https://sahilhashmi.dev";
-const OG_IMAGE = `${SITE_URL}/og-image.png`;
+const OG_IMAGE = `${SITE_URL}/og-image-v2.png`;
 
 function NotFoundComponent() {
   return (
@@ -110,11 +110,11 @@ export const Route = createRootRoute({
       { property: "og:site_name", content: "Oryzen Technolabs" },
       { property: "og:url", content: SITE_URL },
       { property: "og:image", content: OG_IMAGE },
-      { property: "og:image:width", content: "1200" },
-      { property: "og:image:height", content: "630" },
+      { property: "og:image:width", content: "1080" },
+      { property: "og:image:height", content: "1080" },
       {
         property: "og:image:alt",
-        content: "Oryzen Technolabs — digital product studio portfolio",
+        content: "Oryzen Technolabs logo",
       },
       { property: "og:locale", content: "en_US" },
       { name: "twitter:card", content: "summary_large_image" },
